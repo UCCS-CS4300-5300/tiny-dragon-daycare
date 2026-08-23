@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tiny Dragon Daycare</title>
+    <style>
+        body { font-family: system-ui, sans-serif; background: #f7f4ff; margin: 0; padding: 3rem 1rem; color: #222; }
+        .card { max-width: 480px; margin: 0 auto; background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 12px 30px rgba(0,0,0,.08); text-align: center; }
+        .dragon { font-size: 5rem; margin-bottom: .5rem; }
+        h1 { margin-bottom: .25rem; }
+        .status { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+        .status div { background: #f1edff; border-radius: 12px; padding: 1rem; }
+        button { border: 0; border-radius: 999px; padding: .8rem 1.4rem; font-size: 1rem; font-weight: 700; cursor: pointer; }
+        .note { margin-top: 1.5rem; color: #666; font-size: .9rem; }
+    </style>
+</head>
+<body>
+    <main class="card">
+        <div class="dragon">🐉</div>
+        <h1>{{ dragon.name }}</h1>
+        <p>Welcome to Tiny Dragon Daycare.</p>
+
+        <section class="status">
+            <div><strong>Hunger</strong><br>{{ dragon.hunger }} / 10</div>
+            <div><strong>Mood</strong><br>{{ dragon.mood }}</div>
+        </section>
+
+        <form method="post" action="{% url 'feed_dragon' dragon.id %}">
+            {% csrf_token %}
+            <button type="submit">Feed {{ dragon.name }}</button>
+        </form>
+
+        <p class="note">Small app. Big semester.</p>
+    </main>
+</body>
+</html>
