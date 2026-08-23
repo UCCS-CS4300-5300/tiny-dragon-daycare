@@ -4,7 +4,27 @@ A deliberately tiny Django teaching application for CS 4300/5300 Advanced Softwa
 
 This repository will evolve throughout the semester as we introduce testing, GitHub workflows, CI/CD, architecture, security, AI-assisted engineering, and legacy-code practices.
 
-## Run locally
+## Recommended: Run in GitHub Codespaces
+
+1. On the repository page, click **Code**.
+2. Open the **Codespaces** tab.
+3. Click **Create codespace on main**.
+4. Wait for the environment to finish setting up. Dependencies and database migrations are installed automatically.
+5. In the Codespaces terminal, run:
+
+```bash
+python manage.py runserver 0.0.0.0:8000
+```
+
+Codespaces should automatically offer/open a preview of Tiny Dragon Daycare.
+
+Run the tests with:
+
+```bash
+pytest
+```
+
+## Alternative: Run locally
 
 ```bash
 python -m venv .venv
